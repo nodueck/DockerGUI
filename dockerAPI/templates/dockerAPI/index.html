@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %} Container {% endblock %}
+
+{% block content %}
+  <div class="starter-template">
+    <h1>Docker Container</h1>
+    <table class="table table-hover">
+    {% if containerList %}
+      <thead>
+        <tr>
+          <th class="text-center">Name</th>
+          <th class="text-center">Image</th>
+          <th class="text-center">Created</th>
+          <th class="text-center">Status</th>
+          <th class="text-center">Command</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td>Anzahl</td>
+          <td>{{ containerList|length }}</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        {% for container in containerList %}
+        <tr>
+          <td>{{ container.Names.0}}</td>
+          <td>{{ container.Image }}</td>
+          <td>{{ container.Created }}</td>
+          <td>{{ container.Status }}</td>
+          <td>{{ container.Command }}</td>
+          <td><button type="button" class="btn btn-primary">Start</button></td>
+        </tr>
+        <!--<tr>
+          <td>1</td>
+          <td>personal/jenkins</td>
+          <td>7 days ago</td>
+          <td>Stopped</td>
+          <td>"bin/tini -- /usr/lo"</td>
+          <td>0.0.0.0:22->22/tcp</br>0.0.0.0:8080->8080/tcp</td>
+          <td><button type="button" class="btn btn-primary">Start</button></td>
+        </tr>
+        <tr class="success">
+          <td>1</td>
+          <td>personal/jenkins</td>
+          <td>7 days ago</td>
+          <td>Running</td>
+          <td>"bin/tini -- /usr/lo"</td>
+          <td>0.0.0.0:22->22/tcp</br>0.0.0.0:8080->8080/tcp</td>
+          <td><button type="button" class="btn btn-primary">Stop</button></td>
+        </tr>
+        </tr>
+        <tr class="warning">
+          <td>1</td>
+          <td>personal/jenkins</td>
+          <td>7 days ago</td>
+          <td>Paused</td>
+          <td>"bin/tini -- /usr/lo"</td>
+          <td>0.0.0.0:22->22/tcp</br>0.0.0.0:8080->8080/tcp</td>
+          <td><button type="button" class="btn btn-primary">Start</button></td>
+        </tr>
+        </tr>
+        <tr class="danger">
+          <td>1</td>
+          <td>personal/jenkins</td>
+          <td>7 days ago</td>
+          <td>Crashed</td>
+          <td>"bin/tini -- /usr/lo"</td>
+          <td>0.0.0.0:22->22/tcp</br>0.0.0.0:8080->8080/tcp</td>
+          <td><button type="button" class="btn btn-primary">Start</button></td>
+        </tr>-->
+        {% endfor %}
+      </tbody>
+    {% endif %}
+    </table>
+  </div>
+{% endblock %}

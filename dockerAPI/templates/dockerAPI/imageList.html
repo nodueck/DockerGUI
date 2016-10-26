@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %} Images {% endblock %}
+
+{% block content %}
+  <div class="starter-template">
+    <h1>Docker Images</h1>
+    <table class="table table-hover">
+    {% if imageList %}
+      <thead>
+        <tr>
+              <th class="text-center">Name</th>
+              <th class="text-center">Tag</th>
+              <th class="text-center">Size</th>
+              <th class="text-center">Container</th>
+              <th class="text-center">Ports</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td>Anzahl</td>
+          <td>{{ imageList|length }}</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        {% for image in imageList %}
+        <tr>
+          <td>{{ image.RepoTags.0}}</td>
+          <td>{{ image.RepoTags.0 }}</td>
+          <td>{{ image.Size }}</td>
+          <td>Not Supported Yet</td>
+          <td>Not Supported Yet</td>
+          <td><button type="button" class="btn btn-primary">New Container</button></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    {% endif %}
+    </table>
+  </div>
+{% endblock %}
